@@ -1,0 +1,36 @@
+a <- function(x) x = 1/{
+    1 + x
+}
+f <- function(x) x = 1/(1 + x)
+g <- function(x) x = (1/(1 + x))
+h <- function(x) x = ((1/(1 + x)))
+k <- function(x) x = (((1/(1 + x))))
+x <- sample(1:100, 100, replace = TRUE)
+comp <- microbenchmark(a(x), f(x), g(x), h(x), k(x), times = 1e+05)
+comp
+## Unit: microseconds
+##  expr   min    lq median    uq   max neval
+##  a(x) 1.991 2.197  2.313 2.971 11068 1e+05
+##  f(x) 1.960 2.174  2.292 2.990 10435 1e+05
+##  g(x) 2.090 2.302  2.427 3.112 10755 1e+05
+##  h(x) 2.188 2.406  2.536 3.178  9660 1e+05
+##  k(x) 2.259 2.504  2.644 3.367 11228 1e+05
+
+> Height <- c(168, 177, 177, 177, 178, 172, 165, 171, 178, 170) #store a vector
+> Height  # print the vector
+ [1] 168 177 177 177 178 172 165 171 178 170
+> 
+> Height[2] # Print the second component
+[1] 177
+> Height[2:5] # Print the second, the 3rd, the 4th and 5th component
+[1] 177 177 177 178
+> 
+> (obs <- 1:10) # Define a vector as a sequence (1 to 10)
+ [1]  1  2  3  4  5  6  7  8  9 10
+> 
+> Weight <- c(88, 72, 85, 52, 71, 69, 61, 61, 51, 75)
+> 
+> BMI <- Weight/((Height/100)^2)   # Performs a simple calculation using vectors
+> BMI
+ [1] 31.17914 22.98190 27.13141 16.59804 22.40879 23.32342 22.40588 20.86112
+ [9] 16.09645 25.95156
